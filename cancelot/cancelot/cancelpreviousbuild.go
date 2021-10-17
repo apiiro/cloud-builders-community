@@ -44,7 +44,7 @@ func cancelPreviousBuild(ctx context.Context, currentBuildID string, branchName 
 
 	onGoingJobFilter := fmt.Sprintf(`
 		build_id != "%s" AND 
-		source.repo_source.branch_name = "%s" AND 
+		(source.repo_source.branch_name = "%[2]s" OR substitutions.BRANCH_NAME = "%[2]s") AND 
 		status = "WORKING" AND 
 		start_time<"%s"`,
 		currentBuildID,
