@@ -1,8 +1,8 @@
 steps:
   - name: 'gcr.io/cloud-builders/docker'
-    args: [ 'build', '--tag=us-docker.pkg.dev/$PROJECT_ID/internal-tools/helm-${_HELM_VERSION}', '--tag=gcr.io/$PROJECT_ID/tools/helm:latest', '--build-arg', 'HELM_VERSION=v${_HELM_VERSION}', '.' ]
+    args: [ 'build', '--tag=us-docker.pkg.dev/$PROJECT_ID/internal-tools/helm:slim-${_HELM_VERSION}', '--tag=gcr.io/$PROJECT_ID/tools/helm:latest', '--build-arg', 'HELM_VERSION=v${_HELM_VERSION}', '.' ]
 images:
-  - 'us-docker.pkg.dev/$PROJECT_ID/internal-tools/helm-${_HELM_VERSION}'
+  - 'us-docker.pkg.dev/$PROJECT_ID/internal-tools/helm:slim-${_HELM_VERSION}'
   - 'gcr.io/$PROJECT_ID/tools/helm:latest'
 tags: [ 'cloud-builders-community' ]
 substitutions:
